@@ -1,0 +1,253 @@
+body {
+	margin:0;
+	background-color:#dfdfdf;
+	font-family:Roboto, Arial, sans-serif;
+}
+nav {
+	height:70px;
+	background-color:#0D47A1;
+	color:#FFF;
+	display:flex;
+	align-items:center;
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	box-shadow: 0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12);
+	z-index:1000;
+}
+nav #menuButton {
+	height:70px;
+	width:70px;
+	background-image:url(res/menu.svg);
+	background-repeat:no-repeat;
+	background-size:36px;
+	background-position:center;
+	transition:background-color 0.2s;
+	cursor:pointer;
+}
+nav #menuButton:hover, nav #menuButton:active {
+	background-color:rgba(255,255,255,0.3);
+}
+nav h1 {
+	margin:0;
+	font-size:25px;
+	flex:1;
+	text-align:left;
+	padding-left:20px;
+}
+@media (max-width:400px) {
+	nav h1 {
+		text-align:center;
+		padding-left:0;
+	}
+}
+main {
+	top:80px;
+	position:relative;
+	padding-bottom:.1px;
+}
+.card {
+	width:800px;
+	background-color:#FFF;
+	border-radius:3px;
+	box-shadow: 0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12);
+	margin:0 auto 10px auto;
+	box-sizing: border-box;
+    padding: 15px;
+}
+@media (max-width:800px) {
+	.card {
+		width:95%;
+		width:calc(100% - 20px);
+	}
+}
+.card h2 {
+	font-weight:bold;
+	font-size:20px;
+	display:block;
+	margin:0;
+}
+#metaTable {
+	border-spacing:0px;
+	border-collapse:collapse;
+	margin-top:5px;
+}
+#metaTable img {
+	height:30px;
+}
+#metaTable tr td {
+	vertical-align:center;
+}
+#metaTable tr td:nth-child(2) {
+	padding:3px 2px 3px 7px;
+}
+.card .meta {
+	font-size:16px;
+}
+.card .meta:empty:before {
+	content:'Nothing here...';
+	color:#AAA;
+}
+.card .meta.gullibleHolder, .card .meta.gullibleNext {
+	display:block;
+	margin-top:5px;
+}
+.card .meta .name {
+	color:#0D47A1;
+	font-style:italic;
+	font-weight:bold;
+}
+
+a.button {
+	text-decoration:none;
+	padding:8px 10px;
+	font-size:18px;
+	color:#FFF;
+	background-color:#0D47A1;
+	box-shadow: 0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12);
+	border-radius:3px;
+	margin:10px;
+	display:inline-block;
+	transition:box-shadow 0.2s;
+}
+a.button:hover { box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 2px 0px, rgba(0, 0, 0, 0.298039) 0px 6px 10px 0px; }
+a.button:active { box-shadow: rgba(0, 0, 0, 0.188235) 0px 11px 7px 0px, rgba(0, 0, 0, 0.298039) 0px 13px 25px 0px; }
+a.button.btnAlt {
+	background-color:#efefef;
+	color:#0D47A1;
+}
+
+footer {
+	width:100%;
+	border-top:2px solid #AAA;
+	color:#AAA;
+	font-weight:bold;
+	text-align:center;
+	padding:10px 0;
+}
+
+#menu {
+	width: 250px;
+	z-index: 2000;
+	height: 100%;
+	background-color: #fafafa;
+	position: fixed;
+	left: -300px;
+	/*left: 0;*/
+	top: 0;
+	box-sizing:border-box;
+	transition:left 0.6s;
+	padding-top:10px;
+}
+#menu.open {
+	left:0;
+}
+.drawItem {
+	display: block;
+	text-decoration: none;
+	color: #000;
+	font-size: 18px;
+	padding: 10px 15px 10px 50px;
+	height: 30px;
+	transition: background-color 0.2s;
+	line-height:30px;
+	background-size:30px;
+	background-position:10px center;
+	background-repeat:no-repeat;
+}
+#menu .drawItem:nth-child(1) { background-image:url(res/dashboard.svg); }
+#menu .drawItem:nth-child(2) { background-image:url(res/schedule.svg); }
+#menu .drawItem:nth-child(3) { background-image:url(res/roster.svg); }
+#menu .drawItem:nth-child(5) { background-image:url(res/gulliblePage.svg); }
+#menu .drawItem:nth-child(6) { background-image:url(res/monashGroup.svg); }
+.drawItem.active, .drawItem:focus {
+	background-color: #DDD;
+	color: #0D47A1;
+}
+.drawItem:hover {
+    background-color: #DDD;
+}
+.drawSpacer {
+    height: 1px;
+    display: block;
+    margin: 10px 0;
+    background-color: #DDD;
+}
+
+#filter {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1500;
+    background-color: rgba(0,0,0,0.5);
+    height: 100%;
+    width: 100%;
+    /*display: none;*/
+	opacity:0;
+	transition:opacity 0.6s;
+	pointer-events:none;
+}
+#menu.open + #filter {
+	opacity:1;
+	pointer-events:all;
+}
+#gullibleRoster {
+	border-collapse:collapse;
+	width:100%;
+}
+#gullibleRoster thead {
+	color:#747474;
+	font-weight:bold;
+}
+#gullibleRoster tr {
+	border-bottom:1px solid #CCC;
+}
+/*#gullibleRoster tbody tr:last-child {
+	border-bottom:0;
+}*/
+#gullibleRoster td {
+	padding:5px 0 5px 0;
+}
+#gullibleRoster .current {
+	background: rgb(255,255,255, 0.2);
+	background: -moz-linear-gradient(120deg, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 33%,rgba(13,71,161,.2) 33%,rgba(13,71,161,.2) 33%,rgba(13,71,161,.2) 66%,rgba(255,255,255,0) 66%,rgba(255,255,255,0) 100%,rgba(255,255,255,0) 100%);
+	background: -webkit-linear-gradient(120deg, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 33%,rgba(13,71,161,.2) 33%,rgba(13,71,161,.2) 33%,rgba(13,71,161,.2) 66%,rgba(255,255,255,0) 66%,rgba(255,255,255,0) 100%,rgba(255,255,255,0) 100%);
+	background: linear-gradient(120deg, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 33%,rgba(13,71,161,.2) 33%,rgba(13,71,161,.2) 33%,rgba(13,71,161,.2) 66%,rgba(255,255,255,0) 66%,rgba(255,255,255,0) 100%,rgba(255,255,255,0) 100%);
+	background-repeat:repeat-x;
+	background-size:40px 40px;
+	background-position:center;
+}
+
+#schedule {
+	border-collapse:collapse;
+	min-width:800px;
+}
+#schedule thead {
+	color:#747474;
+	font-weight:bold;
+}
+#schedule tr {
+	border-bottom:1px solid #CCC;
+}
+/*#schedule tbody tr:last-child {
+	border-bottom:0;
+}*/
+#schedule td {
+	padding:5px 10px 5px 10px;
+	white-space:nowrap;
+}
+#schedule .current {
+	background: rgb(255,255,255, 0.2);
+	background: -moz-linear-gradient(120deg, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 33%,rgba(13,71,161,.2) 33%,rgba(13,71,161,.2) 33%,rgba(13,71,161,.2) 66%,rgba(255,255,255,0) 66%,rgba(255,255,255,0) 100%,rgba(255,255,255,0) 100%);
+	background: -webkit-linear-gradient(120deg, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 33%,rgba(13,71,161,.2) 33%,rgba(13,71,161,.2) 33%,rgba(13,71,161,.2) 66%,rgba(255,255,255,0) 66%,rgba(255,255,255,0) 100%,rgba(255,255,255,0) 100%);
+	background: linear-gradient(120deg, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 33%,rgba(13,71,161,.2) 33%,rgba(13,71,161,.2) 33%,rgba(13,71,161,.2) 66%,rgba(255,255,255,0) 66%,rgba(255,255,255,0) 100%,rgba(255,255,255,0) 100%);
+	background-repeat:repeat-x;
+	background-size:40px 40px;
+	background-position:center;
+}
+
+.overflow {
+	width:100%;
+	overflow-x:scroll;
+}

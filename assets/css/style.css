@@ -3,7 +3,7 @@ body {
 	background-color:#dfdfdf;
 	font-family:Roboto, Arial, sans-serif;
 }
-nav {
+header {
 	height:70px;
 	background-color:#0D47A1;
 	color:#FFF;
@@ -16,20 +16,20 @@ nav {
 	box-shadow: 0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12);
 	z-index:1000;
 }
-nav #menuButton {
+header #menuButton {
 	height:70px;
 	width:70px;
-	background-image:url(res/menu.svg);
+	background-image:url(../../res/menu.svg);
 	background-repeat:no-repeat;
 	background-size:36px;
 	background-position:center;
 	transition:background-color 0.2s;
 	cursor:pointer;
 }
-nav #menuButton:hover, nav #menuButton:active {
+header #menuButton:hover, nav #menuButton:active {
 	background-color:rgba(255,255,255,0.3);
 }
-nav h1 {
+header h1 {
 	margin:0;
 	font-size:25px;
 	flex:1;
@@ -127,7 +127,7 @@ footer {
 	padding:10px 0;
 }
 
-#menu {
+nav.draw {
 	width: 250px;
 	z-index: 2000;
 	height: 100%;
@@ -140,10 +140,10 @@ footer {
 	transition:left 0.6s;
 	padding-top:10px;
 }
-#menu.open {
+nav.draw.open {
 	left:0;
 }
-.drawItem {
+nav.draw > * {
 	display: block;
 	text-decoration: none;
 	color: #000;
@@ -156,23 +156,26 @@ footer {
 	background-position:10px center;
 	background-repeat:no-repeat;
 }
-#menu .drawItem:nth-child(1) { background-image:url(res/dashboard.svg); }
-#menu .drawItem:nth-child(2) { background-image:url(res/schedule.svg); }
-#menu .drawItem:nth-child(3) { background-image:url(res/roster.svg); }
-#menu .drawItem:nth-child(5) { background-image:url(res/gulliblePage.svg); }
-#menu .drawItem:nth-child(6) { background-image:url(res/monashGroup.svg); }
-.drawItem.active, .drawItem:focus {
+/*                                               These paths are relative to the css file*/
+nav.draw > *:nth-child(1) { background-image:url(../../res/dashboard.svg); }
+nav.draw > *:nth-child(2) { background-image:url(../../res/schedule.svg); }
+nav.draw > *:nth-child(3) { background-image:url(../../res/roster.svg); }
+nav.draw > *:nth-child(5) { background-image:url(../../res/gulliblePage.svg); }
+nav.draw > *:nth-child(6) { background-image:url(../../res/monashGroup.svg); }
+nav.draw > *.active,
+nav.draw > *:focus {
 	background-color: #DDD;
 	color: #0D47A1;
 }
-.drawItem:hover {
+nav.draw > *:hover {
     background-color: #DDD;
 }
-.drawSpacer {
+nav.draw > *.drawSpacer {
     height: 1px;
     display: block;
     margin: 10px 0;
     background-color: #DDD;
+	padding:0;
 }
 
 #filter {
@@ -188,7 +191,7 @@ footer {
 	transition:opacity 0.6s;
 	pointer-events:none;
 }
-#menu.open + #filter {
+nav.draw.open + #filter {
 	opacity:1;
 	pointer-events:all;
 }

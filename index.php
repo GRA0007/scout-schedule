@@ -6,7 +6,7 @@ require TOROOT.'config.php';
 $currentPage = 'dashboard';
 
 $mode = 'schedule';
-// include TOROOT.'code.php';
+include TOROOT.'code.php';
 require TOROOT.'header.php';
 ?>
 

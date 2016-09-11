@@ -6,7 +6,7 @@ require TOROOT.'config.php';
 $currentPage = 'roster';
 
 $mode = 'roster';
-// include TOROOT.'code.php';
+include TOROOT.'code.php';
 require TOROOT.'header.php';
 ?>
 
